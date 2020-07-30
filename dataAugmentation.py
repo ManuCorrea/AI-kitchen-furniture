@@ -42,7 +42,7 @@ def applyTransformations(fileName, output_dir, auxiliarSoundsDir):
 
     # AddImpulseResponse
     augmenter = Compose(
-        [AddImpulseResponse(p=1.0, ir_path=os.path.join(auxiliarSoundsDir, "ir"))]
+        [AddImpulseResponse(p=1.0, ir_path=os.path.join(auxiliarSoundsDir, "helperSounds/ir"))]
     )
     output_file_path = os.path.join(
         output_dir, "{}_AddImpulseResponse_{:03d}.wav".format(name, 0)
@@ -138,7 +138,7 @@ def applyTransformations(fileName, output_dir, auxiliarSoundsDir):
     augmenter = Compose(
         [
             AddBackgroundNoise(
-                sounds_path=os.path.join(auxiliarSoundsDir, "background_noises"), p=1.0
+                sounds_path=os.path.join(auxiliarSoundsDir, "helperSounds/background_noises"), p=1.0
             )
         ]
     )
@@ -153,7 +153,7 @@ def applyTransformations(fileName, output_dir, auxiliarSoundsDir):
     augmenter = Compose(
         [
             AddShortNoises(
-                sounds_path=os.path.join(auxiliarSoundsDir, "short_noises"),
+                sounds_path=os.path.join(auxiliarSoundsDir, "helperSounds/short_noises"),
                 min_snr_in_db=0,
                 max_snr_in_db=8,
                 min_time_between_sounds=2.0,
